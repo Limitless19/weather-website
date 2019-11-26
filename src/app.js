@@ -81,6 +81,8 @@ app.get('/weather',(req, res)=>{
                 forecast : forecastData.summary,
                 location,
                 address : req.query.address,
+                temperatureHigh: forecastData.temperatureHigh,
+                temperatureLow: forecastData.temperatureLow,
             });
         });
     });

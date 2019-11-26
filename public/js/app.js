@@ -3,6 +3,8 @@ const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
+const highTemperatureMessage = document.querySelector('#high-temperature')
+const lowTemperatureMessage = document.querySelector('#low-temperature')
 
 weatherForm.addEventListener('submit',(event)=>{
     event.preventDefault()
@@ -22,9 +24,13 @@ fetch('/weather?address='+ location).then((response)=>{
          console.log({
            location : data.location,
            forecast : data.forecast,
+           temperatureHigh: data.temperatureHigh,
+           temperatureLow : data.temperatureLow,
          })
          messageOne.textContent = data.location
          messageTwo.textContent = data.forecast
+         highTemperatureMessage.textContent = "Highest temeprature today is " + data.temperatureHigh +" degress"
+         lowTemperatureMessage.textContent = "Lowest temeprature today is " +  data.temperatureLow + " degress"
         }
     })
  });

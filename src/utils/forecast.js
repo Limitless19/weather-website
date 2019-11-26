@@ -13,6 +13,8 @@ request(
                 summary:body.daily.summary,
                 temperature:body.currently.temperature,
                 precipProbability:body.currently.precipProbability,
+                temperatureHigh : body.daily.data[0].temperatureHigh,
+                temperatureLow : body.daily.data[0].temperatureLow,
             };
             forecastCallback(undefined,data)
         }
