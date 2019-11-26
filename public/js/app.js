@@ -13,7 +13,7 @@ weatherForm.addEventListener('submit',(event)=>{
     messageTwo.textContent = ''
 //fetch data from a url.
 //note that fetch is not available in node.it is only available in client side js-which is why we are using it here.
-fetch('http://localhost:3000/weather?address='+ location).then((response)=>{
+fetch('/weather?address='+ location).then((response)=>{
     response.json().then((data)=>{
         if(data.error){
             console.log(data.error)
